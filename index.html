@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>قريب | اكتشف براندات مصرية</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="topbar"><span>⚡ توصيل خلال ساعتين في القاهرة والجيزة</span><span class="topbar-note">توصيلة واحدة مهما زاد عدد البراندات</span></div>
+    <header class="header">
+      <button class="icon-button menu" aria-label="القائمة">☰</button>
+      <a class="logo" href="#">قريب<span>•</span></a>
+      <div class="header-actions">
+        <button class="icon-button" aria-label="البحث" onclick="document.querySelector('.search').focus()">⌕</button>
+        <button class="cart-button" onclick="toggleCart()"><span class="cart-icon">▢</span><span class="cart-count" id="cartCount">0</span><span class="desktop-label">السلة</span></button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">من براندات بلدك لحد باب بيتك</p>
+          <h1>كل اللي بتحبيه<br><em>قريب منك.</em></h1>
+          <p class="hero-text">اختاري من براندات مصرية مميزة، اجمعي طلبك في سلة واحدة وخليه يوصلك في أقل من ساعتين.</p>
+          <a class="primary-button" href="#products">ابدئي التسوق <span>←</span></a>
+          <div class="trust-row"><span>✦ براندات مصرية موثوقة</span><span>↗ توصيل سريع</span></div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="sun"></div><div class="arch arch-one"></div><div class="arch arch-two"></div>
+          <div class="package package-one">قريب</div><div class="package package-two">♥</div>
+          <div class="leaf leaf-one">●</div><div class="leaf leaf-two">●</div>
+          <div class="delivery-pill">⚡ يوصل خلال ساعتين</div>
+        </div>
+      </section>
+
+      <section class="benefits">
+        <div><b>٢ ساعات</b><span>توصيل سريع</span></div><div><b>+١٢٠</b><span>براند مصري</span></div><div><b>توصيلة واحدة</b><span>لكل طلبك</span></div>
+      </section>
+
+      <section class="discover" id="products">
+        <div class="section-heading"><div><p class="eyebrow">اختاري اللي على مزاجك</p><h2>اكتشفي منتجاتنا</h2></div><a href="#products">عرض الكل ←</a></div>
+        <div class="search-wrap"><span>⌕</span><input class="search" oninput="renderProducts()" placeholder="بتدوري على إيه؟" /></div>
+        <div class="filters" id="filters">
+          <button class="filter active" data-category="الكل">الكل</button><button class="filter" data-category="أزياء">أزياء</button><button class="filter" data-category="عناية">عناية</button><button class="filter" data-category="أكل">أكل وشرب</button><button class="filter" data-category="ديكور">ديكور</button>
+        </div>
+        <label class="express-toggle"><input type="checkbox" id="expressFilter" onchange="renderProducts()"><span></span> متاح للتوصيل خلال ساعتين</label>
+        <div class="product-grid" id="productGrid"></div>
+      </section>
+
+      <section class="brands"><div class="section-heading"><div><p class="eyebrow">قصص مصرية تستحق الاكتشاف</p><h2>براندات بنحبها</h2></div><a href="#">كل البراندات ←</a></div><div class="brand-grid" id="brandGrid"></div></section>
+      <section class="how"><div><p class="eyebrow">بسيطة زي ما تحبي</p><h2>كل برانداتك،<br>في مشوار واحد.</h2></div><div class="steps"><article><i>١</i><h3>اختاري</h3><p>تسوقي من براندات مختلفة في نفس الوقت.</p></article><article><i>٢</i><h3>اجمعي</h3><p>ضيفي كل اختياراتك لسلة واحدة سهلة.</p></article><article><i>٣</i><h3>استلمي</h3><p>مندوبنا يجمعها ويوصلها لحد عندك.</p></article></div></section>
+    </main>
+    <footer><a class="logo" href="#">قريب<span>•</span></a><p>بنعمل التسوق المحلي أسهل وأقرب.</p><small>© ٢٠٢٥ قريب. صُنع بحب في مصر.</small></footer>
+
+    <aside class="cart-drawer" id="cartDrawer"><div class="drawer-head"><h2>سلة التسوق</h2><button class="icon-button" onclick="toggleCart()">×</button></div><div id="cartItems" class="cart-items"></div><div class="cart-summary"><div><span>المنتجات</span><strong id="subtotal">٠ ج.م</strong></div><div><span>التوصيل <small>مرة واحدة</small></span><strong>٣٥ ج.م</strong></div><div class="total"><span>الإجمالي</span><strong id="total">٣٥ ج.م</strong></div><button class="primary-button checkout" onclick="checkout()">إتمام الطلب ←</button></div></aside>
+    <div class="overlay" id="overlay" onclick="toggleCart()"></div>
+    <div class="toast" id="toast"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
